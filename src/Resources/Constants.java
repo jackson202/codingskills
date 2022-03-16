@@ -12,4 +12,12 @@ public class Constants {
     //Companies Supplier file locations
     public static final String suppliersA = "./input/suppliersa.csv";
     public static final String suppliersB = "./input/suppliersb.csv";
+
+    //The companies name
+    public static final String companyAName = "A";
+    public static final String companyBName = "B";
+
+    //Output file location
+    public static final String outputFile = "./output/output.csv";
+
 }

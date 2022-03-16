@@ -1,4 +1,4 @@
-package Models;
+package Main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,10 +30,11 @@ public class Supplier {
         return name;
     }
 
-    public static List<Supplier> createSupplierList(String suppliers) throws FileNotFoundException {
+    //Creates list of suppliers for each company
+    public static ArrayList<Supplier> createSupplierList(String suppliers) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(suppliers));
         scanner.nextLine();
-        List<Supplier> supplierList = new ArrayList<Supplier>();
+        ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
         Supplier supplier;
 
         while(scanner.hasNextLine()) {

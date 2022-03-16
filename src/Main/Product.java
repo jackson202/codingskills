@@ -1,4 +1,4 @@
-package Models;
+package Main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,10 +33,11 @@ public class Product {
         return description;
     }
 
-    public static List<Product> createProductList(String catalog) throws FileNotFoundException {
+    //Create a catalog list of companies products
+    public static ArrayList<Product> createProductList(String catalog) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(catalog));
         scanner.nextLine();
-        List<Product> catalogList = new ArrayList<Product>();
+        ArrayList<Product> catalogList = new ArrayList<Product>();
         Product product;
 
         while(scanner.hasNextLine()) {
