@@ -51,3 +51,8 @@ Please refer input folder for following CSVs:
 - The code you produce can be in any language ⭐
 - The output of the efforts ❗ must be committed back into a Public Repo in Github and the URL shared back for review. 
 - Document instructions on how to install and run your solution in the README.
+
+
+### How to run
+- Compile the programs in java and run Main.Class or load project into IED and run from main
+- To run unit tests compile the code and run catalog tests class from test folder alternatively run unit tests from selcted IED with Junit 5.4.2 
