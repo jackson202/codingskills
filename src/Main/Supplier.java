@@ -13,7 +13,8 @@ public class Supplier {
     //Name of supplier
     private String name;
 
-    public Supplier() {}
+    public Supplier() {
+    }
 
     public Supplier(int id, String name) {
         this.id = id;
@@ -37,7 +38,7 @@ public class Supplier {
         ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
         Supplier supplier;
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             String[] src = scanner.nextLine().split(",");
             supplier = new Supplier(Integer.parseInt(src[0]), src[1]);
             supplierList.add(supplier);

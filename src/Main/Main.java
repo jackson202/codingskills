@@ -28,21 +28,21 @@ public class Main {
         barcodesCompanyB = Barcode.createBarcodeList(Constants.barcodesB);
 
         //Get list of companies Suppliers
-         supplierCompanyA = Supplier.createSupplierList(Constants.suppliersA);
-         supplierCompanyB = Supplier.createSupplierList(Constants.suppliersB);
+        supplierCompanyA = Supplier.createSupplierList(Constants.suppliersA);
+        supplierCompanyB = Supplier.createSupplierList(Constants.suppliersB);
 
-         //Add companies A products to results
-         for (Product a : catalogCompanyA) {
+        //Add companies A products to results
+        for (Product a : catalogCompanyA) {
             results.add(new Result(a.getSku(), a.getDescription(), Constants.companyAName));
-         }
-         //Add companies B products if SKUs are not matching
+        }
+        //Add companies B products if SKUs are not matching
         for (Product b : catalogCompanyB) {
             if (!Result.matchingSkuInResult(b.getSku(), results)) {
                 results.add(new Result(b.getSku(), b.getDescription(), Constants.companyBName));
             }
         }
         //Get a list products with matching barcodes
-        ArrayList<String> skusToRemove =  Barcode.getListOfMatchingBarcodes(
+        ArrayList<String> skusToRemove = Barcode.getListOfMatchingBarcodes(
                 Barcode.getlistOfBarcodesWithMatchingSDK(results, barcodesCompanyA),
                 barcodesCompanyB);
 

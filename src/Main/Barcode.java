@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Barcode {
 
-    //The numerical  supplier Id
+    //The numerical  supplier id
     private int supplierId;
 
     //Product SKU
@@ -17,9 +17,10 @@ public class Barcode {
     //The Barcodes object barcode
     private String barcode;
 
-    public Barcode(){}
+    public Barcode() {
+    }
 
-    public Barcode(int supplierId, String sku, String barcode){
+    public Barcode(int supplierId, String sku, String barcode) {
         this.supplierId = supplierId;
         this.sku = sku;
         this.barcode = barcode;
@@ -29,6 +30,7 @@ public class Barcode {
     public int getSupplierId() {
         return supplierId;
     }
+
     //returns Barcode If no barcode returns empty string
     public String getBarcode() {
         return barcode;
@@ -46,7 +48,7 @@ public class Barcode {
         ArrayList<Barcode> barcodeList = new ArrayList<Barcode>();
         Barcode barcodeData;
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             String[] src = scanner.nextLine().split(",");
             barcodeData = new Barcode(Integer.parseInt(src[0]), src[1], src[2]);
             barcodeList.add(barcodeData);
@@ -57,10 +59,9 @@ public class Barcode {
     }
 
     //Creates a list of Barcodes present in the first company
-    public static ArrayList<Barcode> getlistOfBarcodesWithMatchingSDK(ArrayList<Result> results, ArrayList<Barcode> barcodes)
-    {
+    public static ArrayList<Barcode> getlistOfBarcodesWithMatchingSDK(ArrayList<Result> results, ArrayList<Barcode> barcodes) {
         ArrayList<Barcode> matchingBarcodes = new ArrayList<Barcode>();
-        for (Result r: results) {
+        for (Result r : results) {
             for (Barcode barcodeA : barcodes) {
                 if (barcodeA.getSku().equals(r.getSku())) {
                     matchingBarcodes.add(barcodeA);
@@ -71,13 +72,11 @@ public class Barcode {
     }
 
     //Match the barcodes of the first company with the second
-    public static ArrayList<String> getListOfMatchingBarcodes(ArrayList<Barcode> barcodesOfFirstCompanyToCheck, ArrayList<Barcode> barcodesOfSecondCompanyToCheck)
-    {
+    public static ArrayList<String> getListOfMatchingBarcodes(ArrayList<Barcode> barcodesOfFirstCompanyToCheck, ArrayList<Barcode> barcodesOfSecondCompanyToCheck) {
         ArrayList<String> skusToRemove = new ArrayList<String>();
-        for (Barcode code: barcodesOfFirstCompanyToCheck) {
+        for (Barcode code : barcodesOfFirstCompanyToCheck) {
             Barcode barcodeB = barcodesOfSecondCompanyToCheck.stream().filter(x -> x.getBarcode().equals(code.getBarcode())).findFirst().orElse(null);
-            if(!Objects.isNull(barcodeB) && !barcodeB.getSku().equals(code.getSku()))
-            {
+            if (!Objects.isNull(barcodeB) && !barcodeB.getSku().equals(code.getSku())) {
                 skusToRemove.add(barcodeB.getSku());
             }
         }

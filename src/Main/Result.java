@@ -36,24 +36,23 @@ public class Result {
         return sku;
     }
 
-    public String getSource(){
+    public String getSource() {
         return source;
     }
 
     //Check if SKU match
-    public  static boolean  skuCompare(String aSku, String bSKU)
-    {
+    public static boolean skuCompare(String aSku, String bSKU) {
         return aSku.equals(bSKU);
     }
+
     //check if SKU is in result list
-    public  static boolean  matchingSkuInResult(String Sku, ArrayList<Result> results)
-    {
-        return  results.stream().filter(x -> x.getSku().equals(Sku)).findFirst().orElse(null) != null;
+    public static boolean matchingSkuInResult(String Sku, ArrayList<Result> results) {
+        return results.stream().filter(x -> x.getSku().equals(Sku)).findFirst().orElse(null) != null;
     }
 
     //Remove SKUs with matching barcodes
     public static ArrayList<Result> removeProducts(ArrayList<Result> results, ArrayList<String> skusToRemove) {
-        for ( String sku: skusToRemove) {
+        for (String sku : skusToRemove) {
             results.removeIf(s -> s.getSku().equals(sku));
         }
         return results;
@@ -71,7 +70,7 @@ public class Result {
             sb.append("Source");
             sb.append('\n');
 
-            for (Result result: results ) {
+            for (Result result : results) {
                 sb.append(result.sku);
                 sb.append(',');
                 sb.append(result.getDescription());

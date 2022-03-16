@@ -40,7 +40,7 @@ public class Product {
         ArrayList<Product> catalogList = new ArrayList<Product>();
         Product product;
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             String[] src = scanner.nextLine().split(",");
             product = new Product(src[0], src[1]);
             catalogList.add(product);
